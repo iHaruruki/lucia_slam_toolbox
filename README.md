@@ -9,6 +9,8 @@ flowchart LR
 
     sudo apt install ros-humble-gazebo-ros
 
+    sudo apt install ros-humble-twist-mux
+
 ## Setup
     cd ~/ros2_ws/src  #Go to ros workspace
 
