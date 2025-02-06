@@ -11,7 +11,7 @@ import xacro
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     world_name = LaunchConfiguration('world_name', default='nav_slam_world')
-    pkg_share_dir = get_package_share_directory('nav_dev')
+    pkg_share_dir = get_package_share_directory('lucia_slam_toolbox')
     model_path = os.path.join(pkg_share_dir, "models")
 
     #ignition gazeboがモデルにアクセスできるように設定

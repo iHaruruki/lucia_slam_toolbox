@@ -6,7 +6,7 @@ find_package(rclpy REQUIRED)
 
 # launch/ および config/ ディレクトリ内のファイルをインストール
 install(
-  DIRECTORY launch config
+  DIRECTORY launch params
   DESTINATION share/${PROJECT_NAME}
 )
 
