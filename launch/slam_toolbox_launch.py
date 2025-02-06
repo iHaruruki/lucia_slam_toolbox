@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     # パッケージ内のconfigディレクトリにある設定ファイルのパスを取得
     config_file = os.path.join(
-        get_package_share_directory('my_slam_pkg'),
+        get_package_share_directory('lucia_slam_toolbox'),
         'config',
         'mapper_params_online_sync.yaml'
     )

@@ -1,0 +1,19 @@
+# RViz2 configuration file
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Map
+      Enabled: true
+      Name: Map
+      Topic: /map
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: RobotModel
+  Fixed Frame: map
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
