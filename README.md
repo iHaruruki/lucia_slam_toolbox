@@ -6,6 +6,9 @@ flowchart LR
 ```
 ## Dependency
     sudo apt install ros-humble-slam-toolbox
+
+    sudo apt install ros-humble-gazebo-ros
+
 ## Setup
     cd ~/ros2_ws/src  #Go to ros workspace
 
