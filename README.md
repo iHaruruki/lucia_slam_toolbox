@@ -9,7 +9,7 @@ flowchart LR
 ## Setup
     cd ~/ros2_ws/src  #Go to ros workspace
 
-    git clone  #clone this package
+    git clone https://github.com/iHaruruki/lucia_slam_toolbox.git #clone this package
 
     cd ~/ros2_ws
 
