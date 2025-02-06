@@ -1,33 +1,18 @@
-#!/usr/bin/env python3
-import os
+#slam_toolboxの起動オプション設定
+slam_params_file = LaunchConfiguration('slam_params_file')
+declare_slam_params_file_cmd = DeclareLaunchArgument(
+    'slam_params_file',
+    default_value=os.path.join(get_package_share_directory("nav_dev"),
+                               'params', 'slam_param.yaml'),
+    description='Full path to the ROS2 parameters file to use for the slam_toolbox node')
 
-from ament_index_python.packages import get_package_share_directory
-from launch import LaunchDescription
-from launch.actions import ExecuteProcess
-from launch_ros.actions import Node
-
-def generate_launch_description():
-    pkg_share = get_package_share_directory('lucia_slam_toolbox')
-    # slam_toolbox のパラメータファイルと RViz2 の設定ファイルのパスを取得
-    slam_config_file = os.path.join(pkg_share, 'config', 'mapper_params_online_sync.yaml')
-    rviz_config_file = os.path.join(pkg_share, 'config', 'rviz2_config.rviz')
-
-    # slam_toolbox ノードの起動設定
-    slam_toolbox_node = Node(
-        package='slam_toolbox',
-        executable='async_slam_toolbox_node',  # async mode
-        name='slam_toolbox',
-        output='screen',
-        parameters=[slam_config_file]
-    )
-
-    # RViz2 の起動（コマンド実行）
-    rviz2 = ExecuteProcess(
-        cmd=['rviz2', '-d', rviz_config_file],
-        output='screen'
-    )
-
-    return LaunchDescription([
-        slam_toolbox_node,
-        rviz2
-    ])
+#slam_toolboxの起動設定
+start_async_slam_toolbox_node = Node(
+    parameters=[
+      slam_params_file,
+      {'use_sim_time': use_sim_time}
+    ],
+    package='slam_toolbox',
+    executable='async_slam_toolbox_node',
+    name='slam_toolbox',
+    output='screen')
