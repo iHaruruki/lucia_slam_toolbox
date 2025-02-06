@@ -11,6 +11,11 @@ flowchart LR
 
     sudo apt install ros-humble-twist-mux
 
+    sudo apt install ros-humble-ros2-control
+
+    sudo apt install ros-humble-ros2-controllers
+
+
 ## Setup
     cd ~/ros2_ws/src  #Go to ros workspace
 
