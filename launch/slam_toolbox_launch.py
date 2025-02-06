@@ -15,19 +15,19 @@ def generate_launch_description():
     # slam_toolbox ノードの起動設定
     slam_toolbox_node = Node(
         package='slam_toolbox',
-        executable='sync_slam_toolbox_node',  # 同期モードノード（環境に合わせて非同期版も検討）
+        executable='async_slam_toolbox_node',  # async mode
         name='slam_toolbox',
         output='screen',
         parameters=[slam_config_file]
     )
 
     # RViz2 の起動（コマンド実行）
-    rviz2_process = ExecuteProcess(
+    rviz2 = ExecuteProcess(
         cmd=['rviz2', '-d', rviz_config_file],
         output='screen'
     )
 
     return LaunchDescription([
         slam_toolbox_node,
-        rviz2_process
+        rviz2
     ])
