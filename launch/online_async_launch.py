@@ -27,7 +27,9 @@ def generate_launch_description():
     has_node_params = HasNodeParams(source_file=params_file,
                                       node_name='slam_toolbox',)
 
-    actual_params_file = PythonExpression(['"', params_file, '"if', has_node_params, 'else', default_params_file, '"'])
+    actual_params_file = PythonExpression([
+        '"', params_file, '" if ', has_node_params, ' else "', default_params_file, '"'
+    ])
 
     log_params_file = LogInfo(msg=['provid params_file:', params_file,
                                    'does not contain slam_toolbox paramerters. Using default:',
