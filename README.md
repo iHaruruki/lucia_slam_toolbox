@@ -30,6 +30,9 @@ flowchart LR
     source install/setup.bash
 
 ## Usage
+    ros2 launch lucia_slam_toolbox launch_robot.launch.py
+
+    ros2 launch slam_toolbox online_async_launch.py params_file:=./src/articubot_one/config/mapper_params_online_async.yaml use_sim_tme:=false
 
 ## License
 ## Authors
