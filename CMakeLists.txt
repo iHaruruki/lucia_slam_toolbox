@@ -32,7 +32,7 @@ endif()
 
 # launch/ および config/ ディレクトリ内のファイルをインストール
 install(
-  DIRECTORY launch config description worlds
+  DIRECTORY launch config description
   DESTINATION share/${PROJECT_NAME}
 )
 
