@@ -25,10 +25,20 @@ def generate_launch_description():
     )
 
     # この行では、robot_state_publisher ノードから robot_description パラメータ（通常は URDF の XML 文字列）を取得するために、ros2 param get コマンドを実行しています。→ 得られた値は、後で controller_manager に渡すためのパラメータとして利用されます。
-    robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
+    #robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
+    robot_description = Command([
+        'xacro',
+        os.path.join(get_package_share_directory(package_name), 'description', 'robot.urdf.xacro'),
+        'use_ros2_control:=true',
+        'sim_mode:=true'
+    ])
 
     # この行では、controller_manager パッケージの my_controllers.yaml ファイルのパスを取得しています
-    controller_params_file = os.path.join(get_package_share_directory(package_name),'config','my_controllers.yaml')
+    controller_params_file = os.path.join(
+        get_package_share_directory(package_name),
+        'config',
+        'my_controllers.yaml'
+    )
 
     # controller_manager ノード→ controller_manager パッケージの ros2_control_node を起動します。→ パラメータとして、先ほどの robot_description（コマンドで取得した URDF 情報）と、コントローラー設定の YAML ファイルを渡します。
     controller_manger = Node(
