@@ -15,6 +15,8 @@ flowchart LR
 
     sudo apt install ros-humble-ros2-controllers
 
+    sudo apt install ros-humble-gazebo-ros2-control
+
 
 ## Setup
     cd ~/ros2_ws/src  #Go to ros workspace
