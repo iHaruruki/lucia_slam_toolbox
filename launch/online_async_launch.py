@@ -13,6 +13,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     params_file = LaunchConfiguration('params_file')
     default_params_file = os.path.join(get_package_share_directory("lucia_slam_toolbox"), 'config', 'mapper_params_online_async.yaml')
+    rviz_config_dir = os.path.join(get_package_share_directory('lucia_cartographer'), 'rviz', 'lucia_cartographer.rviz')
 
     declare_use_sim_time_argument = DeclareLaunchArgument(
         'use_sim_time',
@@ -46,11 +47,20 @@ def generate_launch_description():
         name='slam_toolbox',
         output='screen')
 
+    rviz2 = Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config_dir],
+            parameters=[{'use_sim_time': use_sim_time}],
+            output='screen')
+
     ld = LaunchDescription()
 
     ld.add_action(declare_use_sim_time_argument)
     ld.add_action(declare_params_file_cmd)
     ld.add_action(log_params_file)
     ld.add_action(start_async_slam_toolbox_node)
+    ld.add_action(rviz2)
 
     return ld
