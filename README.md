@@ -23,7 +23,7 @@ $ source install/setup.bash
 ```
 ## Usage
 ```shell
-$ ros2 launch lucia_slam_toolbox
+$ ros2 launch lucia_slam_toolbox online_async_launch.py
 ```
 ## License
 ## Authors
