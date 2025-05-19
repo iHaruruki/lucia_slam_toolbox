@@ -32,7 +32,7 @@ endif()
 
 # launch/ および config/ ディレクトリ内のファイルをインストール
 install(
-  DIRECTORY launch config description rviz
+  DIRECTORY launch config rviz
   DESTINATION share/${PROJECT_NAME}
 )
 
