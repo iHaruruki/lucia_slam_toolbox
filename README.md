@@ -1,6 +1,6 @@
 # lucia_slam_toolbox
 ### Node and Topic
-[](rosgraph.png)
+![](rosgraph.png)
 ## Dependency
 ```shell
 $ sudo apt install ros-humble-slam-toolbox
