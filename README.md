@@ -7,11 +7,6 @@ flowchart LR
 ## Dependency
 ```shell
 $ sudo apt install ros-humble-slam-toolbox
-$ sudo apt install ros-humble-gazebo-ros
-$ sudo apt install ros-humble-twist-mux
-$ sudo apt install ros-humble-ros2-control
-$ sudo apt install ros-humble-ros2-controllers
-$ sudo apt install ros-humble-gazebo-ros2-control
 ```
 ## Setup
 ```shell
