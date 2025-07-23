@@ -27,7 +27,7 @@ ros2 launch lucia_slam_toolbox online_async_launch.py
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 **When you move Lucia, the map will update.**
-![](slam_toolbox.gif)
+![](media/slam_toolbox.gif)
 ### Save map
 ```shell
 # Once the entire map is complete, save it
