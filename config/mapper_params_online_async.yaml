@@ -45,8 +45,8 @@ slam_toolbox:
 
     # Loop Closing
     do_loop_closing: true
-    loop_search_maximum_distance: 8.0
-    loop_match_minimum_chain_size: 10
+    loop_search_maximum_distance: 10.0
+    loop_match_minimum_chain_size: 8
     loop_match_maximum_variance_coarse: 3.0
     loop_match_minimum_response_coarse: 0.40
     loop_match_minimum_response_fine: 0.50
