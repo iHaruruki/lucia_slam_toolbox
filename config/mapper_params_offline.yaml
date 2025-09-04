@@ -37,7 +37,7 @@ slam_toolbox:
 
     # ループ閉じ
     do_loop_closing: true
-    loop_search_maximum_distance: 8.0
+    loop_search_maximum_distance: 10.0
     loop_match_minimum_chain_size: 10
     loop_match_maximum_variance_coarse: 3.0
     loop_match_minimum_response_coarse: 0.35
@@ -51,14 +51,14 @@ slam_toolbox:
     resolution: 0.05
     max_laser_range: 30.0
     min_laser_range: 0.05
-    minimum_time_interval: 0.0      # 0.0 にすると全スキャンを処理
+    minimum_time_interval: 0.0   # 0.0 にすると全スキャンを処理
     map_publish_period_sec: 1.0
 
     # スタックサイズ（ログに出ていた既定値）
     stack_size_to_use: 40000000
 
     # ログ
-    debug_logging: false
+    debug_logging: true
 
     # 既存地図から開始したい場合に使用（必要時のみ指定）
     # map_file_name: ""
