@@ -1,0 +1,66 @@
+slam_toolbox:
+  ros__parameters:
+    # オフライン処理では /clock を待たないため false 推奨
+    use_sim_time: false
+
+    # フレーム設定（環境に合わせて変更）
+    map_frame: map
+    odom_frame: odom
+    base_frame: base_link
+
+    # LiDAR トピック（bag 内のトピック名に合わせる）
+    scan_topic: /scan
+
+    # TF 関連
+    publish_tf: true
+    tf_buffer_duration: 5.0
+    transform_timeout: 0.1
+
+    # 動作モード
+    mode: mapping            # mapping or localization
+    enable_interactive_mode: false
+
+    # ソルバ設定（Ceres）
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+
+    # スキャンマッチング（移動が小さくても統合したい場合は閾値を小さめに）
+    use_scan_matching: true
+    use_scan_barycenter: false
+    minimum_travel_distance: 0.1
+    minimum_travel_heading: 0.1
+    throttle_scans: 1
+
+    # ループ閉じ
+    do_loop_closing: true
+    loop_search_maximum_distance: 8.0
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.35
+    loop_match_minimum_response_fine: 0.45
+    link_scan_maximum_distance: 1.5
+    link_match_minimum_response_fine: 0.1
+    scan_buffer_size: 50
+    scan_buffer_maximum_scan_distance: 100.0
+
+    # マップ生成
+    resolution: 0.05
+    max_laser_range: 30.0
+    min_laser_range: 0.05
+    minimum_time_interval: 0.0      # 0.0 にすると全スキャンを処理
+    map_publish_period_sec: 1.0
+
+    # スタックサイズ（ログに出ていた既定値）
+    stack_size_to_use: 40000000
+
+    # ログ
+    debug_logging: false
+
+    # 既存地図から開始したい場合に使用（必要時のみ指定）
+    # map_file_name: ""
+    # map_start_pose: [0.0, 0.0, 0.0]
+    # map_start_at_dock: false
