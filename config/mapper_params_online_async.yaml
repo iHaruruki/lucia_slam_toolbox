@@ -1,7 +1,5 @@
 slam_toolbox:
   ros__parameters:
-
-    # Frames / Topics
     odom_frame: odom
     map_frame: map
     base_frame: base_link
@@ -9,14 +7,12 @@ slam_toolbox:
     use_map_saver: true
     mode: mapping
 
-    # タイミング
     throttle_scans: 1
     transform_publish_period: 0.02
     transform_timeout: 0.5
     tf_buffer_duration: 120.0
     scan_queue_size: 80
 
-    # 地図 / 解像度
     resolution: 0.05
     min_laser_range: 0.05
     max_laser_range: 30.0
@@ -25,7 +21,7 @@ slam_toolbox:
     enable_interactive_mode: true
     debug_logging: true
 
-    # ソルバ（ロバスト化）
+    # ソルバ（ロバスト化は維持）
     solver_plugin: solver_plugins::CeresSolver
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
     ceres_preconditioner: SCHUR_JACOBI
@@ -33,36 +29,36 @@ slam_toolbox:
     ceres_dogleg_type: TRADITIONAL_DOGLEG
     ceres_loss_function: HUBER
 
-    # キーフレーム密度（少し疎にしてノイズ制約を抑制）
+    # キーフレーム密度（やや密に）
     use_scan_matching: true
     use_scan_barycenter: false
-    minimum_time_interval: 0.05
-    minimum_travel_distance: 0.15
-    minimum_travel_heading: 0.15
+    minimum_time_interval: 0.03
+    minimum_travel_distance: 0.12
+    minimum_travel_heading: 0.12
 
-    # 近傍リンク（質重視）
-    scan_buffer_size: 50
-    scan_buffer_maximum_scan_distance: 100.0
-    link_scan_maximum_distance: 1.8
-    link_match_minimum_response_fine: 0.4
+    # 近傍リンク（候補を増やす）
+    scan_buffer_size: 70
+    scan_buffer_maximum_scan_distance: 120.0
+    link_scan_maximum_distance: 2.2
+    link_match_minimum_response_fine: 0.35
 
-    # ループ閉じ（誤閉じ抑制）
+    # ループ閉じ（受理を少し緩める）
     do_loop_closing: true
-    loop_search_maximum_distance: 9.0
-    loop_match_minimum_chain_size: 10
+    loop_search_maximum_distance: 20.0
+    loop_match_minimum_chain_size: 8
     loop_match_maximum_variance_coarse: 3.0
-    loop_match_minimum_response_coarse: 0.40
-    loop_match_minimum_response_fine: 0.65
+    loop_match_minimum_response_coarse: 0.38
+    loop_match_minimum_response_fine: 0.55
 
-    # ループ相関の探索空間（曖昧さを減らす）
+    # ループ相関の探索空間
     loop_search_space_dimension: 10.0
     loop_search_space_resolution: 0.05
-    loop_search_space_smear_deviation: 0.025
+    loop_search_space_smear_deviation: 0.04
 
-    # ローカル相関 / マッチャ
+    # ローカル相関 / マッチャ（標準寄り）
     correlation_search_space_dimension: 0.5
     correlation_search_space_resolution: 0.01
-    correlation_search_space_smear_deviation: 0.08
+    correlation_search_space_smear_deviation: 0.1
     distance_variance_penalty: 0.6
     angle_variance_penalty: 1.2
     fine_search_angle_offset: 0.00349
@@ -70,4 +66,4 @@ slam_toolbox:
     coarse_angle_resolution: 0.0349
     minimum_angle_penalty: 0.9
     minimum_distance_penalty: 0.5
-    use_response_expansion: false
+    use_response_expansion: true
