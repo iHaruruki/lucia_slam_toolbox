@@ -1,7 +1,5 @@
 slam_toolbox:
   ros__parameters:
-    # Bag 再生では必ず sim time
-    use_sim_time: true
 
     # Frames / Topics
     odom_frame: odom            # bag に odom->base_link が無ければ暫定で base_link に変更可
