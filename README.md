@@ -7,9 +7,11 @@ This package provides launch files and minimal configuration to run `slam_toolbo
 It assumes Lucia’s motors and LiDAR (e.g., urg_node2) are already running and publishing scans.
 
 ## 🛠️ Setup
+### Install slam_toolbox
 ```bash
 sudo apt install ros-humble-slam-toolbox
 ```
+### Clone & Build
 ```bash
 cd ~/ros2_ws/src  #Go to ros workspace
 git clone https://github.com/iHaruruki/lucia_slam_toolbox.git #clone this package
