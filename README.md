@@ -41,7 +41,16 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 # Once the entire map is complete, save it
 ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
+## 🧯 Troubleshooting
+| Symptom | Likely Cause | Fix |
+| ------- | ------------ | --- |
+| Map does not grow | No/slow scans on /scan | Check `ros2 topic hz /scan` (~10 Hz recommended). Verify remapping. |
+| Map warps while moving | Bad TF or wrong sensor pose | Check `ros2 run tf2_tools view_frames`. Fix static transforms and sensor mounting. |
+| Map saving fails | Path/permission issues | Ensure the `-f` path is writable; expect `.pgm` and `.yaml` outputs. |
+| Nothing shows in RViz | Wrong Fixed Frame | Set Fixed Frame to `map`; verify TF and LaserScan topic. |
+
 ## 📜 License
 ## 👤 Authors
 - **[iHaruruki](https://github.com/iHaruruki)** — Main author & maintainer
 ## 📚 References
+[slam_toolbox](https://github.com/SteveMacenski/slam_toolbox.git)
