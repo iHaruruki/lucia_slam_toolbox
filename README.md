@@ -9,7 +9,7 @@ It assumes Lucia’s motors and LiDAR (e.g., urg_node2) are already running and 
 ## 🛠️ Setup
 ### Install slam_toolbox
 ```bash
-sudo apt install ros-humble-slam-toolbox
+sudo apt install ros-$ROS_DISTRO-slam-toolbox
 ```
 ### Clone & Build
 ```bash
