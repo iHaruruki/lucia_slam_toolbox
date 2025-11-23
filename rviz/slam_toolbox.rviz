@@ -49,131 +49,13 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        aluminum_frame:
-          Value: true
-        base_footprint:
-          Value: true
-        base_link:
-          Value: true
-        camera_link:
-          Value: true
-        laser_front:
-          Value: true
-        laser_front_calibrated:
-          Value: true
-        laser_rear:
-          Value: true
-        laser_rear_calibrated:
-          Value: true
-        left_wheel:
-          Value: true
-        lsc_mount:
-          Value: true
-        map:
-          Value: true
-        module1_lower_link:
-          Value: true
-        module1_pich_link:
-          Value: true
-        module1_roll_link:
-          Value: true
-        module1_upper_link:
-          Value: true
-        module2_lower_link:
-          Value: true
-        module2_pich_link:
-          Value: true
-        module2_roll_link:
-          Value: true
-        module2_upper_link:
-          Value: true
-        module3_lower_link:
-          Value: true
-        module3_pich_link:
-          Value: true
-        module3_roll_link:
-          Value: true
-        module3_upper_link:
-          Value: true
-        module4_lower_link:
-          Value: true
-        module4_pich_link:
-          Value: true
-        module4_roll_link:
-          Value: true
-        module4_upper_link:
-          Value: true
-        module5_lower_link:
-          Value: true
-        module5_pich_link:
-          Value: true
-        module5_roll_link:
-          Value: true
-        module5_upper_link:
-          Value: true
-        module6_lower_link:
-          Value: true
-        module6_pich_link:
-          Value: true
-        module6_roll_link:
-          Value: true
-        module6_upper_link:
-          Value: true
-        odom:
-          Value: true
-        right_wheel:
-          Value: true
-        vital_arm_link:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          base_footprint:
-            base_link:
-              aluminum_frame:
-                module1_lower_link:
-                  module1_roll_link:
-                    module1_pich_link:
-                      module1_upper_link:
-                        module2_lower_link:
-                          module2_roll_link:
-                            module2_pich_link:
-                              module2_upper_link:
-                                module3_lower_link:
-                                  module3_roll_link:
-                                    module3_pich_link:
-                                      module3_upper_link:
-                                        module4_lower_link:
-                                          module4_roll_link:
-                                            module4_pich_link:
-                                              module4_upper_link:
-                                                module5_lower_link:
-                                                  module5_roll_link:
-                                                    module5_pich_link:
-                                                      module5_upper_link:
-                                                        module6_lower_link:
-                                                          module6_roll_link:
-                                                            module6_pich_link:
-                                                              module6_upper_link:
-                                                                vital_arm_link:
-                                                                  {}
-              camera_link:
-                {}
-              left_wheel:
-                {}
-              lsc_mount:
-                laser_front:
-                  laser_front_calibrated:
-                    {}
-                laser_rear:
-                  laser_rear_calibrated:
-                    {}
-              right_wheel:
-                {}
+        {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -486,7 +368,7 @@ Visualization Manager:
             Reliability Policy: Reliable
             Value: /landmark_poses_list
           Value: false
-      Enabled: true
+      Enabled: false
       Name: Cartographer
   Enabled: true
   Global Options:
