@@ -45,7 +45,7 @@ ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
 ### Check map
 ```bash
-eog ~/map/pgm
+eog ~/map.pgm
 ```
 
 ## 🧯 Troubleshooting
