@@ -1,5 +1,6 @@
 slam_toolbox:
   ros__parameters:
+    # Core Frame & Topic Settings
     odom_frame: odom
     map_frame: map
     base_frame: base_link
@@ -7,21 +8,23 @@ slam_toolbox:
     use_map_saver: true
     mode: mapping
 
+    # Processing Performance
     throttle_scans: 1
     transform_publish_period: 0.02
     transform_timeout: 0.5
     tf_buffer_duration: 120.0
     scan_queue_size: 80
-
-    resolution: 0.05
-    min_laser_range: 0.05
-    max_laser_range: 30.0
-    map_update_interval: 5.0
     stack_size_to_use: 40000000
     enable_interactive_mode: true
     debug_logging: true
 
-    # ソルバ（ロバスト化は維持）
+    # Map Resolution & Sensor Range
+    resolution: 0.05
+    min_laser_range: 0.05
+    max_laser_range: 30.0
+    map_update_interval: 5.0
+
+    # Solver Configuration (Ceres Solver)
     solver_plugin: solver_plugins::CeresSolver
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
     ceres_preconditioner: SCHUR_JACOBI
@@ -29,20 +32,19 @@ slam_toolbox:
     ceres_dogleg_type: TRADITIONAL_DOGLEG
     ceres_loss_function: HUBER
 
-    # キーフレーム密度（やや密に）
+    # Scan Matching (Local pose estimation)
     use_scan_matching: true
     use_scan_barycenter: false
     minimum_time_interval: 0.03
     minimum_travel_distance: 0.12
     minimum_travel_heading: 0.12
 
-    # 近傍リンク（候補を増やす）
+    # Loop Closure Constraints (Finding when robot returns to old areas)
     scan_buffer_size: 70
     scan_buffer_maximum_scan_distance: 120.0
     link_scan_maximum_distance: 2.2
     link_match_minimum_response_fine: 0.35
 
-    # ループ閉じ（受理を少し緩める）
     do_loop_closing: true
     loop_search_maximum_distance: 20.0
     loop_match_minimum_chain_size: 8
@@ -50,12 +52,12 @@ slam_toolbox:
     loop_match_minimum_response_coarse: 0.38
     loop_match_minimum_response_fine: 0.55
 
-    # ループ相関の探索空間
+    # Loop Search Space
     loop_search_space_dimension: 10.0
     loop_search_space_resolution: 0.05
     loop_search_space_smear_deviation: 0.04
 
-    # ローカル相関 / マッチャ（標準寄り）
+    # Local Correlation/Matching (Scan-to-map alignment)
     correlation_search_space_dimension: 0.5
     correlation_search_space_resolution: 0.01
     correlation_search_space_smear_deviation: 0.1
